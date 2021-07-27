@@ -1,0 +1,11 @@
+# Global
+.*.swp
+.DS_Store
+
+# Application
+vendor/
+node_modules/
+dbdata/
+# VSCode
+.vscode/
+
