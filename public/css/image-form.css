@@ -1,0 +1,13 @@
+.image-form .btn {
+    display: inline-block;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    background-color: rgba(92, 90, 90, 0.055);
+    height: 300px;
+    margin-bottom: 20px;
+}
+
+.image-form img {
+    max-height: 280px;
+}

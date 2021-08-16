@@ -1,0 +1,250 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+@import 'contacts.css';
+
+@import 'carousel.css';
+
+@import 'image-form.css';
+
+*, ::after, ::before {
+    box-sizing: border-box;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+html {
+    --var: 1280px;
+}
+
+body {
+    margin: 0 auto;
+    max-width: var(--var);
+    font-family: 'Roboto', sans-serif;
+    font-size: 1rem;
+}
+
+.container {
+    padding: 0;
+    box-shadow: -1px 1px 42px -7px rgba(0,0,0,0.63);
+    -webkit-box-shadow: -1px 1px 42px -7px rgba(0,0,0,0.63);
+    -moz-box-shadow: -1px 1px 42px -7px rgba(0,0,0,0.63);
+}
+
+.active {
+    font-weight: 500;
+}
+
+main {
+    padding: 10px 35px 10px 35px;
+    background-color:#dddddd;
+}
+
+.main_text p {
+    text-indent: 1.5rem;
+    text-align: justify;
+}
+
+
+footer {
+    padding: 25px;
+    text-align: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items:flex-start;
+}
+
+textarea {
+    margin: 15px 0 15px 0;
+    resize: none;
+    padding: 6px;
+}
+
+blockquote {
+    margin: 0 auto;
+    display: table;
+    margin-bottom: 16px;
+    border-bottom: 1px solid #ccc;
+    padding: 8px;
+    width: 90%;
+}
+
+blockquote p {
+    display: table-cell;
+    width: 90%;
+    vertical-align: middle;
+    word-wrap: normal;
+}
+
+blockquote form {
+    display: table-cell;
+    width: 10%;
+}
+
+blockquote a {
+    color: darkblue;
+    text-decoration: rgb(63, 63, 233) underline;
+}
+
+blockquote a:hover {
+    color: rgb(94, 94, 214);
+}
+
+blockquote>p .btn {
+    float: right;
+    margin-left: 15px;
+}
+
+p {
+    margin-bottom: 6px;
+}
+
+caption {
+    margin-bottom: 10px;
+}
+
+ table, th{
+    text-align: center;
+}
+/*
+th, td {
+    padding: 5px;
+    padding-left: 10px;
+}
+
+thead tr {
+    background-color: rgba(47, 49, 49, 0.2);
+} */
+
+/* tbody tr:nth-child(odd) {
+    background-color:rgba(209, 209, 209, 0.3);
+}
+
+tbody tr:nth-child(even) {
+    background-color: rgba(209, 209, 209, 0.6);
+} */
+
+img {
+    border-radius: 9px;
+}
+
+.about img, .contacts img,
+.main_view img, .protfolio_view img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 15px;
+}
+
+.about h1,
+.contacts h1,
+.main_view h1,
+.protfolio_view h1 {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+/* .about a:hover,
+.contacts a:hover,
+.main_view a:hover {
+    background-color: lightblue;
+    opacity: 0.7;
+} */
+
+/* .gallery-img img {
+    cursor: pointer;
+} */
+
+.addcomment textarea {
+    width: 300px;
+}
+
+.errors {
+    padding: 1em;
+    border: 1px solid red;
+    background-color: lightyellow;
+    color: red;
+    margin-bottom: 1em;
+    overflow: auto;
+}
+
+.errors ul {
+    margin-left: 1em;
+}
+
+form p {
+    clear: both;
+}
+
+/* checkbox align begin */
+.set_categories /* and in permissions.html.php */ {
+    height: 30px;
+    position: relative;
+}
+
+input[type="checkbox"] {
+    float: left;
+    clear: left;
+    width: auto;
+    margin-right: 10px;
+
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+}
+
+input[type="checkbox"] + label {
+    clear: right;
+
+    position: absolute;
+    top: 50%;
+    left: 30px;
+    transform: translateY(-50%);
+}
+
+/* checkbox align end */
+
+.offerlist {
+    display: table;
+}
+
+.categories {
+    display: table-cell;
+    width: 15%;
+    background-color: #444;
+    padding: 16px;
+    list-style-type: none;
+}
+
+.categories a {
+    color: white;
+    text-decoration: none;
+}
+
+.categories li {
+    margin-bottom: 16px;
+}
+
+/* .offerlist .offers {
+    display: table-cell;
+    padding: 16px;
+} */
+
+.currentpage:before {
+    content: "[ ";
+}
+.currentpage:after {
+    content: " ]";
+}
+
+.item-btns {
+    display: flex;
+    position: absolute;
+    right: 30px;
+}

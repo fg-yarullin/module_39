@@ -1,0 +1,35 @@
+.sendcontact {
+    --sendcontact_width: 400px;
+}
+
+.sendcontact, iframe {
+    margin-top: 15px;
+}
+
+.sendcontact {
+    width: var(--sendcontact_width);
+}
+
+.sendcontact input, 
+.sendcontact textarea {
+    border: solid 1px #c3c3c3;
+    margin-bottom: 10px;
+}
+
+.sendcontact input[type="text"] {
+    width: 100%;
+    padding: 5px;
+}
+
+.sendcontact textarea {
+    width: 100%;
+    height: 100px;
+    padding: 5px;
+}
+
+.sendcontact button {
+    background-color: #ccc;
+    padding: 5px;
+    border-radius: 5px;
+    right: calc(-1 * var(--sendcontact_width) + 70px);
+}
