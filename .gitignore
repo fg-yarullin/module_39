@@ -9,3 +9,4 @@ dbdata/
 # VSCode
 .vscode/
 
+*.log

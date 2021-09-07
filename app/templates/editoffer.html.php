@@ -1,4 +1,4 @@
-<?php if (empty($offer->id) || $offer->userid == $user->id &&
+<?php if (empty($offer->id) || $offer->userId == $user->id &&
 $user->hasPermission(\Models\User::EDIT_OFFERS)): ?>
     <form action="" method="post">
         <input type="hidden" name="offer[id]" value="<?=$offer->id ?? '';?>">

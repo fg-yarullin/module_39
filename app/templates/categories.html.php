@@ -1,5 +1,5 @@
-<h2>Categories</h2>
-<a href="/category/edit">Add a new category</a>
+<h2>Категории сайтов</h2>
+<a href="/category/edit">Добавить новую категорию</a>
 <?php foreach ($categories as $category) : ?>
     <blockquote>
         <p>

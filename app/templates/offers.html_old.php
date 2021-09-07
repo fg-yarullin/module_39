@@ -29,11 +29,11 @@
                 ?>)
             </p>
             <?php if ($user): ?>
-                <?php if ($offer->userid == $user->id || $user->hasPermission(\Models\User::EDIT_OFFERS)) : ?>
+                <?php if ($offer->userId == $user->id || $user->hasPermission(\Models\User::EDIT_OFFERS)) : ?>
                     <a class="btn btn-outline-secondary"
                     href="/offer/edit?id=<?=$offer->id?>">Edit</a>
                 <?php endif?>
-                <?php if ($offer->userid == $user->id || $user->hasPermission(\Models\User::DELETE_OFFERS)): ?>
+                <?php if ($offer->userId == $user->id || $user->hasPermission(\Models\User::DELETE_OFFERS)): ?>
                     <form action="/offer/delete" method="post">
                         <input type="hidden" name="id" value="<?= $offer->id ?>">
                         <input class="btn btn-outline-danger ml-2"

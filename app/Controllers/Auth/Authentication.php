@@ -72,6 +72,6 @@ class Authentication {
 
     public function getRole() {
         $user = $this->getUser();
-        return $user['role'];
+        return $user->role;
     }
 }

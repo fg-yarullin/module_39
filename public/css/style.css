@@ -1,10 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
-@import 'contacts.css';
+/* @import 'contacts.css';
 
 @import 'carousel.css';
 
-@import 'image-form.css';
+@import 'image-form.css'; */
+
+@import 'admin.css';
 
 *, ::after, ::before {
     box-sizing: border-box;
@@ -108,10 +110,10 @@ caption {
     margin-bottom: 10px;
 }
 
- table, th{
+table, th{
     text-align: center;
 }
-/*
+
 th, td {
     padding: 5px;
     padding-left: 10px;
@@ -119,15 +121,19 @@ th, td {
 
 thead tr {
     background-color: rgba(47, 49, 49, 0.2);
-} */
+}
 
-/* tbody tr:nth-child(odd) {
+tbody tr:nth-child(odd) {
     background-color:rgba(209, 209, 209, 0.3);
 }
 
 tbody tr:nth-child(even) {
     background-color: rgba(209, 209, 209, 0.6);
-} */
+}
+
+td {
+    text-align: left;
+}
 
 img {
     border-radius: 9px;
@@ -236,15 +242,32 @@ input[type="checkbox"] + label {
     padding: 16px;
 } */
 
-.currentpage:before {
+/* .currentpage:before {
     content: "[ ";
 }
 .currentpage:after {
     content: " ]";
+} */
+
+.currentpage {
+    background-color: rgb(173, 180, 194);
+    font-weight: bolder;
 }
 
 .item-btns {
     display: flex;
     position: absolute;
     right: 30px;
+}
+
+.about-sf-adtech {
+    text-indent: 30px;
+    margin: 20px 0px;
+    padding: 8px 8px 8px 8px;
+    line-height: 32px;
+    background-color: rgb(241, 240, 234);
+}
+
+.about-sf-adtech span {
+    color: #00b43f;
 }

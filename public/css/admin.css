@@ -1,0 +1,12 @@
+.left-pannel {
+    width: 15%;
+    min-height: 600px;
+    background-color: rgb(196, 206, 224);
+    border-right: solid 1px #ffffff;
+    padding: 5px;
+}
+
+.right-pannel {
+    width: 85%;
+    padding: 5px;
+}

@@ -1,12 +1,15 @@
 <?php
 namespace Controllers;
 use Models\DatabaseTable;
+use Controllers\Auth\Authentication;
 
 class UserController {
     private $usersTable;
+    private $authentication;
 
     public function __construct(DatabaseTable $usersTable) {
         $this->usersTable = $usersTable;
+        $this->authentication = new Authentication($this->usersTable, 'email', 'password');
     }
 
     public function list() {
@@ -25,7 +28,10 @@ class UserController {
         $user = $this->usersTable->findById($_GET['id']);
         $reflected = new \ReflectionClass('Models\User');
         $constants = $reflected->getConstants();
-        $variables = ['user' => $user, 'permissions' => $constants];
+        $variables = [
+            'user' => $user,
+            'permissions' => $constants
+        ];
         return [
             'template' => 'permissions.html.php',
             'title' => 'Edit Permissions',
@@ -48,5 +54,15 @@ class UserController {
             'template' => 'permissionError.html.php',
             'title' => 'Permission Error',
         ];
+    }
+
+    public function adminPage() {
+        if ($this->authentication->getRole() === 'admin') {
+            return [
+                'template' => 'adminPage.html.php',
+                'title' => 'Admin Page',
+            ];
+        }
+        header('location: user/permissions/error');
     }
 }

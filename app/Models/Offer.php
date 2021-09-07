@@ -4,7 +4,7 @@ use Models\DatabaseTable;
 
 class Offer {
     public $id;
-    public $userid;
+    public $userId;
     public $offerdate;
     public $offertext;
     private $usersTable;
@@ -18,7 +18,7 @@ class Offer {
 
     public function getUser() {
         if (empty($this->user)) {
-            $this->user = $this->usersTable->findById($this->userid);
+            $this->user = $this->usersTable->findById($this->userId);
         }
         return $this->user;
     }

@@ -78,7 +78,7 @@ class OfferController {
         if (isset($_GET['id']) && isset($_POST['offer'])) {
             $id = $_POST['offer']['id'];
             $offer = $this->offersTable->findById($id);
-            if ($offer->userid != $user->id) {
+            if ($offer->userId != $user->id) {
                 header('location: /user/permissions/error');
                 return;
             }
@@ -102,7 +102,7 @@ class OfferController {
         $user = $this->authentication->getUser();
         $offer = $this->offersTable->findById($_POST['id']);
 
-        if ($offer->userid != $user->id && $user->hasPermission(\Models\User::DELETE_OFFERS)) {
+        if ($offer->userId != $user->id && $user->hasPermission(\Models\User::DELETE_OFFERS)) {
             header('location: /user/permissions/error');
             return;
         }

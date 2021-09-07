@@ -94,7 +94,8 @@ class AppRoutes implements Routes{
                     'controller' => $offerController,
                     'action' => 'edit'
                 ],
-                'login' => true
+                'login' => true,
+                'permissions' => User::EDIT_OFFERS
             ],
 
             'offer/delete' => [
@@ -102,7 +103,8 @@ class AppRoutes implements Routes{
                     'controller' => $offerController,
                     'action' => 'delete'
                 ],
-                'login' => true
+                'login' => true,
+                'permissions' => User::DELETE_OFFERS
             ],
 
             'offer/list' => [
@@ -161,7 +163,7 @@ class AppRoutes implements Routes{
                     'action' => 'savePermissons'
                 ],
                 'login' => true,
-                'permissions' => User::EDIT_USER_ACCESS
+                // 'permissions' => User::EDIT_USER_ACCESS
             ],
 
             'user/list' => [
@@ -180,6 +182,15 @@ class AppRoutes implements Routes{
                 ],
                 'login' => true
             ],
+
+            'admin' => [
+                'GET' => [
+                    'controller' => $userController,
+                    'action' => 'adminPage'
+                ],
+                'login' => true,
+                'isAdmin' => true
+            ]
         ];
 
         return $routes;

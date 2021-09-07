@@ -15,24 +15,24 @@ CREATE TABLE `offer` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `offertext` text,
   `offerdate` date NOT NULL,
-  `userid` int(11) DEFAULT NULL,
+  `userId` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
-  KEY `index_userid` (`userid`)
+  KEY `index_userId` (`userId`)
 ) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
 
-ALTER TABLE offer ADD COLUMN userid INT;
-CREATE INDEX index_userid ON offer (userid);
+ALTER TABLE offer ADD COLUMN userId INT;
+CREATE INDEX index_userId ON offer (userId);
 
 INSERT INTO `offer` SET
 `offertext` = 'How many programmers does it take to screw in a lightbulb? None, it\'s a
 hardware problem.',
 `offerdate` = '2017-04-01',
-`userid` = 1;
-INSERT INTO `offer` (`offertext`, `offerdate`, `userid`)
+`userId` = 1;
+INSERT INTO `offer` (`offertext`, `offerdate`, `userId`)
 VALUES (
 'Why did the programmer quit his job? He didn\'t get arrays',
 '2017-04-01', 1);
-INSERT INTO `offer` (`offertext`, `offerdate`, `userid`)
+INSERT INTO `offer` (`offertext`, `offerdate`, `userId`)
 VALUES (
 'Why was the empty array stuck outside? It didn\'t have any keys',
 '2017-04-01', 2);

@@ -1,5 +1,5 @@
 <p>
-    <?=$totalOffers?> offers have been submitted to the Offer Database.
+    Всего <?=$totalOffers?> offers have been submitted to the Offer Database.
 </p>
 
 <div class="offerlist">
@@ -31,10 +31,10 @@
             </p>
             <?php if ($user): ?>
                 <div class="item-btns">
-                <?php if ($offer->userid == $user->id || $user->hasPermission(\Models\User::EDIT_OFFERS)) : ?>
+                <?php if ($offer->userId == $user->id || $user->hasPermission(\Models\User::EDIT_OFFERS)) : ?>
                     <a class="btn btn-outline-secondary" href="/offer/edit?id=<?=$offer->id?>">Edit</a>
                 <?php endif?>
-                <?php if ($offer->userid == $user->id || $user->hasPermission(\Models\User::DELETE_OFFERS)): ?>
+                <?php if ($offer->userId == $user->id || $user->hasPermission(\Models\User::DELETE_OFFERS)): ?>
                     <form action="/offer/delete" method="post">
                         <input type="hidden" name="id" value="<?= $offer->id ?>">
                         <input class="btn btn-outline-danger ml-2" type="submit"value="Delete">
@@ -45,15 +45,22 @@
         </blockquote>
     <?php endforeach; ?>
     </div>
-    <div>
-        <?php
-        $numPages = ceil($totalOffers/5);
-        for ($i = 1; $i <= $numPages; $i++): if ($i == $currentPage): ?>
-            <a class="currentpage" href="/offer/list?page=<?=$i?><?=!empty($categoryId) ? '&category=' . $categoryId : ''?>"><?=$i?></a>
-        <?php else: ?>
-            <a href="/offer/list?page=<?=$i?><?=!empty($categoryId) ? '&category=' . $categoryId : ''?>"><?=$i?></a>
-        <?php endif?>
-        <?php endfor; ?>
-    </div>
+
+    <nav aria-label="Page navigation" class="d-flex justify-content-center">
+        <ul class="pagination">
+            <?php
+            $numPages = ceil($totalOffers/5);
+            for ($i = 1; $i <= $numPages; $i++): if ($i == $currentPage): ?>
+                <li class="page-item">
+                    <a class="page-link currentpage" href="/offer/list?page=<?=$i?><?=!empty($categoryId) ? '&category=' . $categoryId : ''?>"><?=$i?></a>
+                </li>
+            <?php else: ?>
+                <li class="page-item">
+                    <a class="page-link" href="/offer/list?page=<?=$i?><?=!empty($categoryId) ? '&category=' . $categoryId : ''?>"><?=$i?></a>
+                </li>
+            <?php endif?>
+            <?php endfor; ?>
+        </ul>
+    </nav>
 
 </div>

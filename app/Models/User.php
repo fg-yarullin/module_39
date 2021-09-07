@@ -2,6 +2,7 @@
 namespace Models;
 
 class User {
+
     const EDIT_OFFERS = 1;
     const DELETE_OFFERS = 2;
     const LIST_CATEGORIES = 4;
@@ -13,6 +14,7 @@ class User {
     public $name;
     public $email;
     public $password;
+    public $role;
     private $offersTable;
 
     public function __construct(DatabaseTable $offersTable) {
@@ -20,15 +22,19 @@ class User {
     }
 
     public function getOffers() {
-        return $this->offersTable->find('userid', $this->id);
+        return $this->offersTable->find('userId', $this->id);
     }
 
     public function addOffer($offer) {
-        $offer['userid'] =$this->id;
+        $offer['userId'] =$this->id;
         return $this->offersTable->save($offer);
     }
 
     public function hasPermission($permission) {
         return $this->permissions & $permission;
+    }
+
+    public function isAdmin() {
+        return $this->role === 'admin';
     }
 }
