@@ -23,26 +23,36 @@ html {
 
 body {
     margin: 0 auto;
-    max-width: var(--var);
+    /* max-width: var(--var); */
     font-family: 'Roboto', sans-serif;
     font-size: 1rem;
+    background-color: rgba(0, 0, 0);
 }
 
-.container {
+.appcontainer {
     padding: 0;
-    box-shadow: -1px 1px 42px -7px rgba(0,0,0,0.63);
-    -webkit-box-shadow: -1px 1px 42px -7px rgba(0,0,0,0.63);
-    -moz-box-shadow: -1px 1px 42px -7px rgba(0,0,0,0.63);
+    width: 100%;
+    background-color: #dddddd;
+    min-height: 100vh;
 }
 
 .active {
     font-weight: 500;
 }
 
-main {
+.main {
+    width: 95%;
+    min-height: calc(100vh - 130px);
+    margin: 0 auto;
+    /* min-width: var(--var); */
     padding: 10px 35px 10px 35px;
     background-color:#dddddd;
+
+    box-shadow: -1px 1px 42px -7px rgba(0,0,0,0.63);
+    -webkit-box-shadow: -1px 1px 42px -7px rgba(0,0,0,0.63);
+    -moz-box-shadow: -1px 1px 42px -7px rgba(0,0,0,0.63);
 }
+
 
 .main_text p {
     text-indent: 1.5rem;
@@ -67,7 +77,7 @@ textarea {
     padding: 6px;
 }
 
-blockquote {
+.offer {
     margin: 0 auto;
     display: table;
     margin-bottom: 16px;
@@ -76,30 +86,34 @@ blockquote {
     width: 90%;
 }
 
-blockquote p {
+.offer__text {
     display: table-cell;
-    width: 90%;
+    width: 850px;
     vertical-align: middle;
     word-wrap: normal;
 }
 
-blockquote form {
+.offer__btns {
     display: table-cell;
-    width: 10%;
+    /* width: 10%; */
 }
 
-blockquote a {
+.offer__btns-wraper {
+    display: flex;
+}
+
+/* blockquote form {
+    display: table-cell;
+    width: 10%;
+} */
+
+.offer__owner-email {
     color: darkblue;
     text-decoration: rgb(63, 63, 233) underline;
 }
 
-blockquote a:hover {
+.offer a:hover {
     color: rgb(94, 94, 214);
-}
-
-blockquote>p .btn {
-    float: right;
-    margin-left: 15px;
 }
 
 p {
@@ -216,25 +230,35 @@ input[type="checkbox"] + label {
 
 /* checkbox align end */
 
-.offerlist {
-    display: table;
-}
+
 
 .categories {
-    display: table-cell;
-    width: 15%;
+    /* display: table-cell; */
+    /* width: 200px; */
     background-color: #444;
     padding: 16px;
     list-style-type: none;
 }
 
-.categories a {
+.categories__link {
     color: white;
     text-decoration: none;
 }
 
+.categories__link:hover {
+    display: block;
+    color: rgb(244, 245, 175);
+    font-weight: 600;
+    margin: 0 0px 0 6px;
+}
+
 .categories li {
     margin-bottom: 16px;
+}
+
+.categories li:first-child {
+    color: white;
+    font-weight: 800;
 }
 
 /* .offerlist .offers {

@@ -23,3 +23,5 @@ $user->hasPermission(\Models\User::EDIT_OFFERS)): ?>
 <?php else: ?>
 <p>You may only edit jokes that you posted.</p>
 <?php endif; ?>
+
+
