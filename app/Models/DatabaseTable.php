@@ -86,6 +86,7 @@ class DatabaseTable {
 
     public function findAll($orderBy = null, $limit = null, $offset = null) {
         $query = 'SELECT * FROM ' . $this->table;
+//        $query = $this->sqlString->select($this->table);
         if ($orderBy) $query .= ' ORDER BY ' . $orderBy;
         if ($limit) $query .= ' LIMIT ' . $limit;
         if ($offset) $query .= ' OFFSET ' . $offset;
