@@ -26,10 +26,10 @@ body {
     /* max-width: var(--var); */
     font-family: 'Roboto', sans-serif;
     font-size: 1rem;
-    background-color: rgba(0, 0, 0);
+    background-color: #ddd;
 }
 
-.appcontainer {
+.app-container {
     padding: 0;
     width: 100%;
     background-color: #dddddd;
@@ -203,11 +203,11 @@ form p {
 
 /* checkbox align begin */
 .set_categories /* and in permissions.html.php */ {
-    height: 30px;
-    position: relative;
+    /* height: 30px;
+    position: relative; */
 }
 
-input[type="checkbox"] {
+/* input[type="checkbox"] {
     float: left;
     clear: left;
     width: auto;
@@ -226,7 +226,7 @@ input[type="checkbox"] + label {
     top: 50%;
     left: 30px;
     transform: translateY(-50%);
-}
+} */
 
 /* checkbox align end */
 

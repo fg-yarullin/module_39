@@ -1,6 +1,6 @@
 <?php
 namespace Controllers\Auth;
-use Controllers\Auth\Authentication;
+//use Controllers\Auth\Authentication;
 
 class Login {
     private $authentication;
@@ -10,7 +10,7 @@ class Login {
         $this->authentication = $authentication;
     }
 
-    public function loginForm() {
+    public function loginForm():array {
         $this->generateToken();
         return [
             'template' => 'login.html.php',
@@ -21,7 +21,7 @@ class Login {
         ];
     }
 
-    public function proccessLogin() {
+    public function proccessLogin():array {
         if ($this->authentication->login($_POST['email'], $_POST['password'])) {
             if (session_status() !== PHP_SESSION_ACTIVE) session_start();
             header('location: /login/success');
@@ -39,7 +39,7 @@ class Login {
         }
     }
 
-    public function success() {
+    public function success():array {
         return [
             'template' => 'loginsuccessful.html.php',
             'title' => 'Login successful'
@@ -53,7 +53,7 @@ class Login {
         ];
     }
 
-    public function logout() {
+    public function logout():array {
         // added later begin
         if (session_status() !== PHP_SESSION_ACTIVE) {
             session_start();

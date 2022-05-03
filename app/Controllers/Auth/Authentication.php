@@ -37,6 +37,8 @@ class Authentication {
             session_regenerate_id();
             $_SESSION['username'] = $username;
             $_SESSION['password'] = $user[0]->$passwordColumn;
+            $_SESSION['role'] = $user[0]->role;
+            $_SESSION['email'] = $user[0]->email;
             return true;
         } else {
             $this->log->pushHandler(new StreamHandler('access_log.log', Logger::WARNING));

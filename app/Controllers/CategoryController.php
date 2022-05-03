@@ -5,12 +5,14 @@ use Models\DatabaseTable;
 
 class CategoryController {
     private $categoriesTable;
+//    private $offersTable;
 
     public function __construct(DatabaseTable $categoriesTable) {
         $this->categoriesTable = $categoriesTable;
+//        $this->$offersTable = $offersTable;
     }
 
-    public function list() {
+    public function list():array {
         $categories = $this->categoriesTable->findAll();
         $title = 'Offer Categories';
         $variables = ['categories' => $categories];
@@ -21,7 +23,14 @@ class CategoryController {
         ];
     }
 
-    public function edit() {
+//    public function getOffersInCategory():array {
+//        if (isset($_GET['id'])) {
+//            $category = $this->categoriesTable->findById($_GET['id']);
+//            $offers = $this->offersTable->find()
+//        }
+//    }
+
+    public function edit():array {
         if (isset($_GET['id'])) {
             $category = $this->categoriesTable->findById($_GET['id']);
         }

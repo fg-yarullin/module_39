@@ -1,4 +1,4 @@
-<h1>Admin Page</h1>
+<h1>Администрирование</h1>
 <div class="d-flex flex-row">
     <nav class="left-pannel nav-bar">
         <ul>
@@ -10,13 +10,6 @@
             </li>
             <li class="navbar-nav">
                 <a href="/offer/list" class="nav-link">Предложения</a>
-            </li>
-            <li class="navbar-nav">
-                <a href="#" class="nav-link">Link 1</a>
-            </li>
-
-            <li class="navbar-nav">
-                <a href="#" class="nav-link">link 2</a>
             </li>
         </ul>
     </nav>

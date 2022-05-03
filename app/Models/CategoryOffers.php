@@ -2,22 +2,17 @@
 namespace Models;
 //use Models\DatabaseTable;
 
-class Offer {
-    public $id;
-    public $userId;
-    public $offerdate;
-    public $offertext;
-    private $usersTable;
-    private $user;
-    private $offerCategoryTable;
+class CategoryOffers {
+    public $offerId;
+    public $categoryId;
+    private $offerTable;
 
-    public function __construct(DatabaseTable $usersTable, DatabaseTable $offerCategoryTable) {
-        $this->usersTable = $usersTable;
-        $this->offerCategoryTable=$offerCategoryTable;
+    public function __construct(DatabaseTable $offerTable) {
+        $this->$offerTable = $offerTable;
     }
 
-    public function getUser() {
-        if (empty($this->user)) {
+    public function getOffers() {
+        if (empty($this->offerTable)) {
             $this->user = $this->usersTable->findById($this->userId);
         }
         return $this->user;

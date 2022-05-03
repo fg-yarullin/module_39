@@ -9,4 +9,8 @@ dbdata/
 # VSCode
 .vscode/
 
+.idea/
+
 *.log
+*.zip
+*.sql

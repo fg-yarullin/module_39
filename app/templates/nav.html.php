@@ -7,37 +7,37 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="/">Home</a>
+                        <a class="nav-link active" aria-current="page" href="/">Главная</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/offer/list">Offers List</a>
+                        <a class="nav-link" href="/offer/list">Предложения</a>
                     </li>
-                    <li>
-                        <a class="nav-link" href="/offer/edit">Add a new Offer</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Dropdown
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="#">Action</a></li>
-                            <li><a class="dropdown-item" href="#">Another action</a></li>
-                            <li>
-                                <hr class="dropdown-divider">
-                            </li>
-                            <li><a class="dropdown-item" href="#">Something else here</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-                    </li>
-
+                    <!-- <li>
+                        <a class="nav-link" href="/offer/edit">Добавить предложение</a>
+                    </li> -->
                     <?php if ($loggedIn): ?>
-                        <li class="nav-item"><a class="nav-link" href="/logout">Log out</a></li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <? echo ucfirst(explode('@', $_SESSION['email'])[0]) ?>
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="/admin">Админ</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li ><a class="dropdown-item" href="/logout">Выход</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><span class="dropdown-item">(Роль: <? print($_SESSION['role'])?>)</span></li>
+                            </ul>
+                        </li>
                     <?php else: ?>
-                        <li class="nav-item"><a class="nav-link" href="/login">Log in</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/login">Вход</a></li>
                     <?php endif; ?>
-
+<!--                    <li class="nav-item">-->
+<!--                        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>-->
+<!--                    </li>-->
                 </ul>
 <!--
                 <form class="d-flex">

@@ -1,4 +1,4 @@
-<h2>Edit <?= $user->name ?>’s Permissions</h2>
+<h2>Измениние прав и роли пользователя <?= $user->name ?></h2>
 
 <form action="" method="post">
     <?php foreach ($permissions as $name => $value) : ?>

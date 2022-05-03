@@ -24,6 +24,7 @@
         <th>Описание</th>
         <th>Стоимость перехода</th>
         <th>Количество подписчиков</th>
+        <th>Состояние</th>
         <th></th>
         </tr>
     </thead>
@@ -50,6 +51,13 @@
             <td>Еще нет</td>
             <td>Цена не определена</td>
             <td>Не известно</td>
+            <td class="text-center">
+                <?php if ($offer->is_active):?>
+                    активный
+                <?php else: ?>
+                    не активный
+                <?php endif ?>
+            </td>
             <td>
             <?php if ($user): ?>
                 <div class="offer__btns">
@@ -76,8 +84,13 @@
         </tr>
     </tfoot>
 </table>
-
 </div>
+
+<?php if ($user && ($user->role == 'web_master' || $user->role == 'admin')): ?>
+    <div class="ml-5">
+        <a class="btn btn-primary" href="/offer/edit">Добавить предложение</a>
+    </div>
+<?php endif ?>
 
 <nav aria-label="Page navigation" class="d-flex justify-content-center">
     <ul class="pagination">

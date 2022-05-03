@@ -17,23 +17,25 @@ class OfferController {
         $this->authentication = $authentication;
     }
 
-    public function home() {
+    public function home():array {
         $title = 'Offer Database';
         return ['title' => $title, 'template' => 'home.html.php'];
     }
 
-    public function list() {
+    public function list():array {
         $page = $_GET['page'] ?? 1;
         $offset = ($page - 1) * 5;
+        $user = $this->authentication->getUser();
         if (isset($_GET['category'])) {
             $category = $this->categoriesTable->findById($_GET['category']);
-            $offers = $category->getOffers(5, $offset);
-            $totalOffers = $category->getOffersCount();
+//            $offers = $category->getOffers(5, $offset);
+            var_dump($category);
+            $offers = $category->find('userId', $user->id);
         } else {
-            $offers = $this->offersTable->findAll('offerdate DESC', 5, $offset);
-            $totalOffers = $this->offersTable->total();
+//            $offers = $this->offersTable->findAll('offerdate DESC', 5, $offset);
+            $offers = $this->offersTable->find('userid',$user->id ,null, 5, $offset);
         }
-        $user = $this->authentication->getUser();
+        $totalOffers = count($offers);
         $title = 'Offers List';
         $variables = [
             'totalOffers' => $totalOffers,
@@ -88,6 +90,7 @@ class OfferController {
         $offer['offerdate'] = new DateTime();
 
         $offerEntity = $user->addOffer($offer);
+        // var_dump($offerEntity); return;
 
         $offerEntity->clearCategories();
 

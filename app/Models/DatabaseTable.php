@@ -1,5 +1,6 @@
 <?php
 namespace Models;
+use App\Models\SqlQuery;
 use PDO;
 use PDOException;
 use DateTime;
@@ -10,6 +11,7 @@ class DatabaseTable {
     private $primaryKey;
     private $className;
     private $constructorArgs;
+    private $sqlString;
 
     public function __construct(PDO $pdo, string $table, string $primaryKey,
     string $className = '\stdClass', array $constructorArgs = []) {
@@ -18,11 +20,18 @@ class DatabaseTable {
         $this->primaryKey = $primaryKey;
         $this->className = $className;
         $this->constructorArgs = $constructorArgs;
+        $this->sqlString = new SqlQuery($table);
     }
 
     private function query($sql, $parameters = []) {
         $query = $this->pdo->prepare($sql);
         $query->execute($parameters);
+
+        $this->sqlString->select($this->table)->where(['id' => 2, 'userId' => 5]);
+        $this->sqlString->whereOR(['id' => 2, 'userId' => 3]);
+        $this->sqlString->whereIn([['id', [1, 4, 5] ], ['userId', [3, 6, 34, 23]]]);
+        var_dump($this->sqlString);
+
         return $query;
     }
 
@@ -100,6 +109,17 @@ class DatabaseTable {
         $query = $this->query($query, $parameters);
         return $query->fetchAll(PDO::FETCH_CLASS, $this->className, $this->constructorArgs);
     }
+
+    public function findWhereIN(string $column, array $values, string $orderBy = null, int $limit = null, int $offset = null) {
+        $query = 'SELECT * FROM `' . $this->table . '` WHERE `' . $column . '` IN :values';
+        $parameters = [':values' => $values];
+        if ($orderBy) $query .= ' ORDER BY ' . $orderBy;
+        if ($limit) $query .= ' LIMIT ' . $limit;
+        if ($offset) $query .= ' OFFSET ' . $offset;
+        $query = $this->query($query, $parameters);
+        return $query->fetchAll(PDO::FETCH_CLASS, $this->className, $this->constructorArgs);
+    }
+
 
     public function save($record) {
         $entity = new $this->className(...$this->constructorArgs);

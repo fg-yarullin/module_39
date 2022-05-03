@@ -12,7 +12,7 @@ class UserController {
         $this->authentication = new Authentication($this->usersTable, 'email', 'password');
     }
 
-    public function list() {
+    public function list():array {
         $users = $this->usersTable->findAll();
 
         $variables = ['users' => $users];
@@ -24,7 +24,7 @@ class UserController {
         ];
     }
 
-    public function permissions() {
+    public function permissions():array {
         $user = $this->usersTable->findById($_GET['id']);
         $reflected = new \ReflectionClass('Models\User');
         $constants = $reflected->getConstants();
@@ -49,7 +49,7 @@ class UserController {
         header('location: /user/list');
     }
 
-    public function permissionError() {
+    public function permissionError():array {
         return [
             'template' => 'permissionError.html.php',
             'title' => 'Permission Error',

@@ -12,19 +12,19 @@
 </head>
 
 <body>
-    <div class="appcontainer">
+    <div class="app-container">
         <header>
             <?php include 'nav.html.php'; ?>
         </header>
-        <main class="main">
+        <main class="main ">
             <?= $output ?>
         </main>
         <footer class="bg-light text-dark">
-            &copy; «SF-AdTech», 2020&#8722;<?=date("Y"); ?>
+            &copy; «SF-AdTech», 2021&#8722;<?=date("Y"); ?>
         </footer>
     </div>
     <noscript>
-        <div class="appcontainer">
+        <div class="app-container">
             <header>
                 <?php include 'nav.html.php'; ?>
             </header>
@@ -32,7 +32,7 @@
                 <?= $output ?>
             </main>
             <footer class="bg-light text-dark">
-                &copy; «SF-AdTech», 2020&#8722;<?=date("Y"); ?>
+                &copy; «SF-AdTech», 2021&#8722;<?=date("Y"); ?>
             </footer>
         </div>
     </noscript>

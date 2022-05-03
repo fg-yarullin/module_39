@@ -1,21 +1,8 @@
 <?php if (isset($error)) : ?>
     <div class="errors"><?= $error; ?></div>
 <?php endif; ?>
-<form method="post" action="">
-    <!-- csrf_field -->
-    <input type="hidden" name="token" value="<?=$token?>">
 
-    <label for="email">Your email address</label>
-    <input type="text" id="email" name="email" value="<?=$_POST['email']?>">
-    <label for="password">Your password</label>
-    <input type="password" id="password" name="password">
-    <input type="submit" name="login" value="Log in">
-</form>
-<p>
-    Don't have an account? <a href="/user/register">Click here to register an account</a>
-</p>
-
-<div class="row justify-content-center pt-5 pb-3 m-0">
+<div class="row justify-content-center mt-5 pt-5 pb-3 m-0">
     <div class="col-md-8">
         <div class="card-group">
             <div class="card p-4">
